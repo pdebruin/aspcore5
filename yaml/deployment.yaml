@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aspcore5-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aspcore5
+  template:
+    metadata:
+      labels:
+        app: aspcore5
+    spec:
+      containers:
+      - name: aspcore5-container
+        image: "pieterd.azurecr.io/pdebruin/aspcore5:latest"
+        ports:
+        - containerPort: 80
